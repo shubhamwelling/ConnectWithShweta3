@@ -1,0 +1,47 @@
+{% extends 'poll/base.html' %}
+{% block title %}Suggestions{% endblock %}
+{% block main %}
+<div class="hero-body container" style = "background: url('/img/pic.png') no-repeat right; background-size: contain;">
+            <div class="container">
+    <h2 class="title"><strong><i>Suggestions about "{{poll.question}}"</i></strong></h2>
+
+    {% for comment in poll.comments.all %}
+        <article class="media">
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <strong>{{ comment.name }}</strong> | <small>{{ comment.email }}</small> | V:<small>{{comment.AreYouVoting}}</small> | Date: <small>{{ comment.date_added }}</small>
+                        <br>
+                        {{ comment.note }}
+                    </p>
+                </div>
+            </div>
+        </article>
+    {% empty %}
+        <div class="notification">
+            <p>Be the first to suggest something!</p>
+        </div>
+    {% endfor %}
+
+    <hr>
+
+    <h1 class="subtitle"> <strong>Leave A Suggestion</strong></h1>
+
+    <form method="post" action=".">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-success">Submit</button>
+            </div>
+        </div>
+        <div class="box">
+
+            What can you do to make Aurora a better community? Share your thoughts!
+            Leave any of your ideas and suggestions above.
+            Please keep them appropriate and relevant to the topic.
+</div>
+    </form>
+{% endblock %}

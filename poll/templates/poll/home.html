@@ -1,0 +1,39 @@
+{% extends "poll/base.html" %}
+{% load static%}
+{% block title %}Surveys{% endblock %}
+
+{% block main %}
+<div class="row">
+    <!--<IMG STYLE="position:absolute; TOP:2dpx; LEFT:-20px; WIDTH:450px; HEIGHT:350px" SRC="{% static 'images/renamebaidlogo.png' %} ">-->
+
+
+
+    <div class="col-lg-9 col-lg-offset-1">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="color:black;">Surveys</h3>
+            </div>
+            <p style="border:3px; border-style:solid; border-color:#0000FF; padding: 1em;">Below are the surveys that Shweta Baid would like you to answer.</p>
+
+            <ul class="list-group">
+                {% for poll in polls %}
+                <li class="list-group-item">
+                    <table border="0"> <tr style="height:20px;"><strong>{{ poll.question }}</strong>
+                    <span class="pull-middle">
+                       <table border="0"> <tr style="height:7px;"> <a href="{% url 'vote' poll.id %}" class="button is-small button is-primary">Answer</a> &nbsp;</tr></table>
+                        <table border="0"> <tr style="height:7px;"><a href="{% url 'results' poll.id %}" class="button is-small button is-primary">Survey Data</a></tr></table>
+                        <table border="0"> <tr style="height:7px;"><a href="{% url 'suggestions' poll.id %}" class="button is-small button is-primary">Suggestions</a></tr></table>
+                        <table border="0"> <tr style="height:20px;"><a href="{% url 'date' poll.id %}" class="button is-small button is-primary">Date Published</a></tr></table>
+
+
+                    </span>
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

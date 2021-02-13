@@ -1,0 +1,53 @@
+{% extends "poll/base.html" %}
+
+{% block title %}Survey Data{% endblock %}
+
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Survey Data for "{{ poll.question }}"</h3>
+            </div>
+             <div class="col-lg-7 col-lg-offset-2 col-lg-push-1">
+            <div class="panel-body">
+                <h3>What other people think:</h3>
+            </div>
+
+            <ul class="list-group">
+                <li class="list-group-item">{{ poll.option_one }} → <strong>{{ poll.option_one_count }}</strong></li>
+                <li class="list-group-item">{{ poll.option_two }} → <strong>{{ poll.option_two_count }}</strong></li>
+                <li class="list-group-item">{{ poll.option_three }} → <strong>{{ poll.option_three_count }}</strong></li>
+                <li class="list-group-item">{{ poll.option_four }} → <strong>{{ poll.option_four_count }}</strong></li>
+                <li class="list-group-item">{{ poll.option_five }} → <strong>{{ poll.option_five_count }}</strong></li>
+            <div class="panel panel-info">
+                <div class="panel-footer">
+                    Total = <mark>{{ poll.total }}</mark>
+            </div>
+                </div>
+            </ul>
+                 </div>
+            <div class="col-lg-7 col-lg-offset-6 col-lg-pull-3">
+            <ul class="list-group">
+
+                <li class="list-group-item">{{ poll.option_one }} →  <strong>{{ poll.percent1 }}%</strong></li>
+                <li class="list-group-item">{{ poll.option_two }} → <strong>{{ poll.percent2}}% </strong></li>
+                <li class="list-group-item">{{ poll.option_three }} → <strong>{{ poll.percent3}}%</strong></li>
+                <li class="list-group-item">{{ poll.option_four }} → <strong>{{ poll.percent4 }}%</strong></li>
+                <li class="list-group-item">{{ poll.option_five }} → <strong>{{ poll.percent5 }}%</strong></li>
+                <div class="panel panel-info">
+                <div class="panel-footer">
+                Total Percent = <strong>{{ NotApplicable }}100%</strong>
+            </div>
+                      </div>
+            </ul>
+</div>
+
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

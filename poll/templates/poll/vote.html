@@ -1,0 +1,78 @@
+{% extends "poll/base.html" %}
+
+{% block title %}Answer{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title"><u>Answer</u></h3>
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                     <h2>  {{ poll.question }}</h2>
+                        <h5>{{poll.additionalnotes}}</h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <hr />
+
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="radio">
+                                   <!-- <label>
+                                        <input type="radio" name="poll" value="option1" required>
+                                        {{ poll.option_one }}
+                                    </label> &nbsp;
+                                    <label>
+                                        <input type="radio" name="poll" value="option2">
+                                        {{ poll.option_two }}
+                                    </label> &nbsp;
+                                    <label>
+                                        <input type="radio" name="poll" value="option3">
+                                        {{ poll.option_three }}
+                                    </label> &nbsp;
+                                    <label>
+                                        <input type="radio" name="poll" value="option4">
+                                        {{ poll.option_four }}
+                                    </label> &nbsp;
+                                    <label>
+                                        <input type="radio" name="poll" value="option5">
+                                        {{ poll.option_five }}
+                                    </label> &nbsp;-->
+                                     <ul>
+  <li><label><input type="radio" name="poll" value="option1">
+                                        {{ poll.option_one }}</label></li>
+  <li><label><input type="radio" name="poll" value="option2">
+                                        {{ poll.option_two }}</label></li>
+  <li><label><input type="radio" name="poll" value="option3">
+                                        {{ poll.option_three }}</label></li>
+  <li><label><input type="radio" name="poll" value="option4">
+                                        {{ poll.option_four }}</label></li>
+  <li><label><input type="radio" name="poll" value="option5">
+                                        {{ poll.option_five }}</label></li>
+
+</ul>
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <div class="control">
+                <button class="button is-success">Submit</button>
+            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

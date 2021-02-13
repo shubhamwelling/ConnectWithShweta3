@@ -1,0 +1,82 @@
+{% extends "poll/base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Make A Survey{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-12 col-lg-offset-0.5">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title"> <u>Make A New Survey</u> </h3>
+            </div>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="question">Enter Question</label>
+                                {% render_field form.question class="form-control" rows="5" %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-1">
+                            <div class="form-group">
+                                <label for="option1">Choice #1</label>
+                                {% render_field form.option_one class="form-control" %}
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="form-group">
+                                <label for="option2">Choice #2</label>
+                                {% render_field form.option_two class="form-control" %}
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="form-group">
+                                <label for="option3">Choice #3</label>
+                                {% render_field form.option_three class="form-control" %}
+                            </div>
+                        <div class="col-1">
+                            <div class="form-group">
+                                <label for="option4">Choice #4</label>
+                                {% render_field form.option_four class="form-control" %}
+                            </div>
+                        <div class="col-1">
+                            <div class="form-group">
+                                <label for="option5">Choice #5</label>
+                                {% render_field form.option_five class="form-control" %}
+                            </div>
+                        <div class="col-1">
+                            <div class="form-group">
+                                <label for="option5">Additional Notes</label>
+                                {% render_field form.additionalnotes class="form-control" %}
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    </div>
+
+                    <div class="row">
+                        <hr />
+                        <div class="col-lg-4">
+
+                            <div class="control">
+                <button class="button is-success">Submit</button>
+            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

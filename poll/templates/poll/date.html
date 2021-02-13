@@ -1,0 +1,23 @@
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+{% extends "poll/base.html" %}
+
+{% block title %}Date Published{% endblock %}
+
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title"><u>"{{poll.question}}" was published on</u></h3>
+            </div>
+
+            <div class="panel-body">
+                <h3>{{ poll.dt }}</h3>
+            </div>
+             </div>
+         </div>
+     </div>
+
+
+{% endblock %}
